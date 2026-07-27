@@ -64,14 +64,7 @@ Uruchom cały skrypt i zapisz wyniki kontroli:
 - wynik kontroli relacji,
 - liczba wierszy przed i po JOIN.
 
-## Git
 
-```powershell
-git status
-git add sql/01_data_audit.sql notes/01_data_audit.md
-git commit -m "Add day 1 SQL data audit"
-git push -u origin feature/sql-server
-```
 
 ## Co zapamiętać
 
@@ -80,3 +73,18 @@ git push -u origin feature/sql-server
 - Strona `1` relacji musi mieć unikalny klucz.
 - JOIN może zwielokrotnić rekordy, gdy klucz wymiaru nie jest unikalny.
 - Duplikatów nie usuwamy automatycznie bez ustalenia przyczyny.
+
+
+## Utworzenie tabeli oczyszczonej
+
+Na podstawie tabeli surowej `dbo.Walmart_Sales` utworzono tabelę
+`dbo.Walmart_Sales_Cleaned`.
+
+Wyniki:
+
+- liczba rekordów surowych: 12 870,
+- liczba rekordów unikalnych: 6 435,
+- liczba usuniętych nadmiarowych rekordów: 6 435,
+- przyczyna: podwójny import danych,
+- daty przekonwertowano z formatu `dd-MM-yyyy` do typu `date`,
+- kolumny liczbowe przekonwertowano z `varchar` na właściwe typy numeryczne.
