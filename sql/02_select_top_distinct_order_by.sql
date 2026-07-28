@@ -84,10 +84,48 @@ CWICZENIA - wykonaj samodzielnie
 -- Wyswietl unikalne kombinacje Store i Holiday_Flag.
 -- Posortuj wynik wedlug Store, a nastepnie Holiday_Flag.
 
+SELECT
+    Store,
+    Date_Sales,
+    Weekly_Sales
+FROM dbo.Walmart_Sales_Cleaned;
+
+SELECT DISTINCT
+    Store,
+    Holiday_Flag
+FROM dbo.Walmart_Sales_Cleaned
+ORDER BY Store ASC, Holiday_Flag ASC;
+
+SELECT TOP (10)
+    Store AS Numer_Sklepu,
+    Date_Sales AS Data_Sprzedazy,
+    Weekly_Sales AS Sprzedaz_Tygodniowa
+FROM dbo.Walmart_Sales_Cleaned
+ORDER BY Weekly_Sales ASC;
+
+SELECT TOP (15)
+    Store AS Numer_Sklepu,
+    Date_Sales AS Data_Sprzedazy,
+    Weekly_Sales AS Sprzedaz_Tygodniowa
+FROM dbo.Walmart_Sales_Cleaned
+ORDER BY Weekly_Sales DESC;
+
+SELECT
+    Store,
+    Date_Sales,
+    Weekly_Sales
+FROM dbo.Walmart_Sales_Cleaned
+ORDER BY Store ASC, Date_Sales DESC;
+
+SELECT DISTINCT
+    Store,
+    Holiday_Flag
+FROM dbo.Walmart_Sales_Cleaned
+ORDER BY Store ASC, Holiday_Flag ASC;
+
 /* =========================================================
 ZADANIE PRAKTYCZNE
 ========================================================= */
-
 -- Przygotuj ranking 20 najwyzszych wynikow tygodniowej sprzedazy.
 -- Kolumny:
 -- Numer_Sklepu
@@ -95,3 +133,11 @@ ZADANIE PRAKTYCZNE
 -- Sprzedaz_Tygodniowa
 -- Czy_Swieto
 -- Sortowanie: Sprzedaz_Tygodniowa malejaco.
+
+SELECT TOP (20)
+    Store AS Numer_Sklepu,
+    Date_Sales AS Data_Sprzedazy,
+    Weekly_Sales AS Sprzedaz_Tygodniowa,
+    Holiday_Flag AS Czy_Swieto
+FROM dbo.Walmart_Sales_Cleaned
+ORDER BY Weekly_Sales DESC;
