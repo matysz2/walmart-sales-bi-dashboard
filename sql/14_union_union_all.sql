@@ -96,7 +96,7 @@ SELECT
     COUNT(*) AS Records_Count,
     CAST(SUM(Weekly_Sales) AS DECIMAL(18,2)) AS Total_Sales,
     CAST(AVG(Weekly_Sales) AS DECIMAL(18,2)) AS Avg_Weekly_Sales
-FROM dbo.Walmart_Sales
+FROM dbo.Walmart_Sales_Cleaned
 WHERE Holiday_Flag = 1
 
 UNION ALL
@@ -106,7 +106,7 @@ SELECT
     COUNT(*) AS Records_Count,
     CAST(SUM(Weekly_Sales) AS DECIMAL(18,2)) AS Total_Sales,
     CAST(AVG(Weekly_Sales) AS DECIMAL(18,2)) AS Avg_Weekly_Sales
-FROM dbo.Walmart_Sales
+FROM dbo.Walmart_Sales_Cleaned
 WHERE Holiday_Flag = 0
 ORDER BY Rodzaj_Okresu;
 GO
@@ -121,7 +121,7 @@ SELECT
     COUNT(*) AS Records_Count,
     CAST(SUM(Weekly_Sales) AS DECIMAL(18,2)) AS Total_Sales,
     CAST(AVG(Weekly_Sales) AS DECIMAL(18,2)) AS Avg_Weekly_Sales
-FROM dbo.Walmart_Sales
+FROM dbo.Walmart_Sales_Cleaned
 WHERE YEAR([Date]) = 2010
 
 UNION ALL
@@ -131,7 +131,7 @@ SELECT
     COUNT(*),
     CAST(SUM(Weekly_Sales) AS DECIMAL(18,2)),
     CAST(AVG(Weekly_Sales) AS DECIMAL(18,2))
-FROM dbo.Walmart_Sales
+FROM dbo.Walmart_Sales_Cleaned
 WHERE YEAR([Date]) = 2011
 
 UNION ALL
@@ -141,7 +141,7 @@ SELECT
     COUNT(*),
     CAST(SUM(Weekly_Sales) AS DECIMAL(18,2)),
     CAST(AVG(Weekly_Sales) AS DECIMAL(18,2))
-FROM dbo.Walmart_Sales
+FROM dbo.Walmart_Sales_Cleaned
 WHERE YEAR([Date]) = 2012
 ORDER BY Rok;
 GO
@@ -228,7 +228,7 @@ SELECT
     Date,
     Weekly_Sales,
     '2010' AS Okres_Zrodlowy
-FROM dbo.Walmart_Sales
+FROM dbo.Walmart_Sales_Cleaned
 WHERE YEAR(Date) = 2010
 
 UNION ALL
@@ -238,7 +238,7 @@ SELECT
     Date,
     Weekly_Sales,
     '2012' AS Okres_Zrodlowy
-FROM dbo.Walmart_Sales
+FROM dbo.Walmart_Sales_Cleaned
 WHERE YEAR(Date) = 2012
 ORDER BY Date, Store;
 GO
@@ -254,7 +254,7 @@ SELECT
     COUNT(*) AS Records_Count,
     CAST(SUM(Weekly_Sales) AS DECIMAL(18,2)) AS Total_Sales,
     CAST(AVG(Weekly_Sales) AS DECIMAL(18,2)) AS Avg_Weekly_Sales
-FROM dbo.Walmart_Sales
+FROM dbo.Walmart_Sales_Cleaned
 WHERE YEAR(Date) = 2010
 GROUP BY YEAR(Date)
 
@@ -265,7 +265,7 @@ SELECT
     COUNT(*) AS Records_Count,
     CAST(SUM(Weekly_Sales) AS DECIMAL(18,2)) AS Total_Sales,
     CAST(AVG(Weekly_Sales) AS DECIMAL(18,2)) AS Avg_Weekly_Sales
-FROM dbo.Walmart_Sales
+FROM dbo.Walmart_Sales_Cleaned
 WHERE YEAR(Date) = 2011
 GROUP BY YEAR(Date)
 
@@ -276,7 +276,7 @@ SELECT
     COUNT(*) AS Records_Count,
     CAST(SUM(Weekly_Sales) AS DECIMAL(18,2)) AS Total_Sales,
     CAST(AVG(Weekly_Sales) AS DECIMAL(18,2)) AS Avg_Weekly_Sales
-FROM dbo.Walmart_Sales
+FROM dbo.Walmart_Sales_Cleaned
 WHERE YEAR(Date) = 2012
 GROUP BY YEAR(Date)
 ORDER BY Rok;
