@@ -346,7 +346,6 @@ EXEC dbo.usp_Walmart_Type_Performance
     @Date_To = '2012-12-31';
 GO
 
-/* Opcjonalne sprzatanie:
+ Opcjonalne sprzatanie:
 DROP PROCEDURE IF EXISTS dbo.usp_Walmart_Count_Store_Weeks;
 GO
-*/
